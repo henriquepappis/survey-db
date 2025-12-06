@@ -1,0 +1,31 @@
+app = "survey-db-visuallider"
+primary_region = "gru"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  MYSQL_DATABASE = "survey"
+  MYSQL_USER = "survey"
+
+# Serviço TCP na porta do MySQL
+[[services]]
+  internal_port = 3306
+  protocol = "tcp"
+  autostart = true
+  autostop = false
+  min_machines_running = 1
+  processes = ["app"]
+
+  [[services.ports]]
+    port = 3306
+
+# Volume para dados
+[[mounts]]
+  source = "mysqldata"
+  destination = "/var/lib/mysql"
+
+[[vm]]
+  cpu_kind = "shared"
+  cpus = 1
+  memory = "1gb"
