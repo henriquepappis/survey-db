@@ -1,7 +1,7 @@
 FROM mysql:8.0
 
 # Valores padrão; use secrets do Fly.io para sobrepor senhas em produção.
-ENV MYSQL_DATABASE=survey \
+ENV MYSQL_DATABASE=survey_db \
     MYSQL_USER=survey
 
 # Saúde do container depende do MYSQL_ROOT_PASSWORD definido via fly secrets.
