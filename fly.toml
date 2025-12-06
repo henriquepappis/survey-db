@@ -12,8 +12,8 @@ primary_region = "gru"
 [[services]]
   internal_port = 3306
   protocol = "tcp"
-  autostart = true
-  autostop = false
+  auto_start_machines = true
+  auto_stop_machines = false
   min_machines_running = 1
   processes = ["app"]
 
